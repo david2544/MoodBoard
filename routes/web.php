@@ -15,12 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::post('/hook', function() {
-    $req_dump = print_r($_POST, TRUE);
-    $fp = fopen('request.log', 'a');
-    fwrite($fp, $req_dump);
-    fclose($fp);
-});
+Route::post('/hook', 'BaseController@hook');
 
 Route::get('/hook', function() {
     return file_get_contents('request.log');
