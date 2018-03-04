@@ -13,9 +13,10 @@ class MoodTable extends Migration
      */
     public function up()
     {
-        Schema::create('mood', function (Blueprint $table) {
+        Schema::create('moods', function (Blueprint $table) {
             $table->increments('id');
             $table->string('mood_value');
+            $table->timestamps();
         });
     }
 
@@ -26,6 +27,6 @@ class MoodTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('mood');
+        Schema::dropIfExists('moods');
     }
 }
