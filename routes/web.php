@@ -21,3 +21,7 @@ Route::post('/hook', function() {
     fwrite($fp, $req_dump);
     fclose($fp);
 });
+
+Route::get('/hook', function() {
+    return file_get_contents('request.log');
+});
