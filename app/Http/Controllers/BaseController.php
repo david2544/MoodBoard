@@ -14,8 +14,12 @@ class BaseController extends Controller
 		// fclose($fp);
 		$payload = json_decode($request->get('payload'));
 		$mood_value = $payload->actions[0]->value;
+		$user_name = $payload->user->name;
+		$user_id = $payload->user->id;
 		$mood = new Mood;
 		$mood->mood_value = $mood_value;
+		$mood->user_name = $user_name;
+		$mood->user_id = $user_id;
 		$mood->save();
 	}
 
