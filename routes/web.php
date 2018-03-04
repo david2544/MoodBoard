@@ -17,6 +17,4 @@ Route::get('/', function () {
 
 Route::post('/hook', 'BaseController@hook');
 
-Route::get('/hook', function() {
-    return file_get_contents('request.log');
-});
+Route::get('/hook', 'BaseController@dump');
