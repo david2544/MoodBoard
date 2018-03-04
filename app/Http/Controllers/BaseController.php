@@ -21,5 +21,6 @@ class BaseController extends Controller
 
 	function dump() {
 		 //return file_get_contents('request.log');
+		return Mood::all();
 	}
 }
