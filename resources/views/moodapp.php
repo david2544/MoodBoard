@@ -5,12 +5,6 @@
 	<title>Webhooks testing</title>
 </head>
 <body>
-	<p id="demo"></p>
-	<div id="result">
-	</div>
-	<button id="btn">
-		Send Message!
-	</button>
 	<script>
 		window.onload = function mood(){
 
