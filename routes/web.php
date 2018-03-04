@@ -15,6 +15,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/send_message', function () {
+    return view('moodapp');
+});
+
 Route::post('/hook', 'BaseController@hook');
 
 Route::get('/hook', 'BaseController@dump');

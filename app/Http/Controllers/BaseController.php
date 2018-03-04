@@ -12,12 +12,14 @@ class BaseController extends Controller
 		// $fp = fopen('request.log', 'a');
 		// fwrite($fp, $req_dump);
 		// fclose($fp);
+		$payload = json_decode($request->get('payload'));
+		$mood_value = $payload->actions[0]->value;
 		$mood = new Mood;
-		$mood->mood_value = 'asadsa';
+		$mood->mood_value = $mood_value;
 		$mood->save();
 	}
 
 	function dump() {
-		 return file_get_contents('request.log');
+		 //return file_get_contents('request.log');
 	}
 }
