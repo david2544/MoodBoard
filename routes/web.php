@@ -16,7 +16,7 @@ Route::get('/', function () {
 });
 
 Route::get('/send_message', function () {
-    return view('moodapp');
+    return view('phpMoodApp');
 });
 
 Route::post('/hook', 'BaseController@hook');
