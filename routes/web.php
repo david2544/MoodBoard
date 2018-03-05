@@ -17,8 +17,11 @@ Route::get('/', function () {
 
 Route::get('/send_message', function () {
     return view('phpMoodApp');
-});
+})->middleware('auth');
 
-Route::post('/hook', 'BaseController@hook');
+Route::post('/hook', 'BaseController@hook')->middleware('auth');
 
-Route::get('/hook', 'BaseController@dump');
+Route::get('/hook', 'BaseController@dump')->middleware('auth');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
