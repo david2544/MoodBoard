@@ -48,6 +48,23 @@ class SendSlackMessage extends Command
                         },
                         {
                             "name": "mood",
+                            "text": "Angry :angry:",
+                            "type": "button",
+                            "value": "1.5",
+                            "confirm": {
+                                "title": "Yo chill",
+                                "text": "ok? :grin:",
+                                "ok_text": "Ok"
+                            }
+                        },
+                        {
+                            "name": "mood",
+                            "text": "Neutral :neutral_face:",
+                            "type": "button",
+                            "value": "2.5"
+                        },
+                        {
+                            "name": "mood",
                             "text": "Sick :face_with_head_bandage:",
                             "type": "button",
                             "value": "2"
