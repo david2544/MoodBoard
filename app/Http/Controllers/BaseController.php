@@ -18,6 +18,10 @@ class BaseController extends Controller
 		$mood->user_id = $user_id;
 		$mood->save();
 	}
+	function outgoing(Request $request) {
+		$payload = json_decode($request->get('payload'));
+		return $payload;
+	}
 
 	function dump() {
 		return Mood::all();

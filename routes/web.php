@@ -21,6 +21,8 @@ Route::get('/send_message', function () {
 
 Route::post('/hook', 'BaseController@hook');
 
+Route::get('/outgoing', 'BaseController@outgoing');
+
 Route::get('/hook', 'BaseController@dump');
 Auth::routes();
 
