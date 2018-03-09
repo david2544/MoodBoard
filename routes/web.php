@@ -15,9 +15,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/hook', 'BaseController@hook');
+Route::post('/hook', 'BaseController@hook');
 
-Route::get('/outgoing', 'BaseController@outgoing');
+Route::post('/outgoing', 'BaseController@outgoing');
 
 Route::get('/dump', 'BaseController@dump');
 
