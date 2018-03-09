@@ -17,7 +17,6 @@ Route::get('/', function () {
 
 Route::post('/hook', 'BaseController@hook');
 
-//Route::post('/outgoing', 'BaseController@outgoing');
 
 Route::get('/dump', 'BaseController@dump');
 

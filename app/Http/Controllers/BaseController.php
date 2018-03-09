@@ -22,9 +22,20 @@ class BaseController extends Controller
         }
         else{
             $url = 'https://hooks.slack.com/services/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';
-            $payload = '{
-                "text": '.json_encode($request).'
-            }';
+            $user_id = $_POST['user_id'];
+            $trigger_word = $_POST['trigger_word'];
+            if ($trigger_word == "mood")
+            {
+                $payload = '{
+                    "text": "Hello, Ive heard you mentioned something about mood"
+                }';
+            }
+            else{
+                $payload = '{
+                   "text": "This is an outgoing webhook reply to one of the keywords: mood, moodboard"
+                }';
+            }
+
             $ch = curl_init( $url );
             curl_setopt( $ch, CURLOPT_POST, 1);
             curl_setopt( $ch, CURLOPT_POSTFIELDS, $payload);
@@ -35,19 +46,6 @@ class BaseController extends Controller
             $response = curl_exec( $ch );
         }
     }
-
-//	function outgoing(Request $request) {
-//		$payload = $request;
-//		$url = 'https://hooks.slack.com/services/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';
-//		$ch = curl_init( $url );
-//		curl_setopt( $ch, CURLOPT_POST, 1);
-//		curl_setopt( $ch, CURLOPT_POSTFIELDS, $payload);
-//		curl_setopt( $ch, CURLOPT_FOLLOWLOCATION, 1);
-//		curl_setopt( $ch, CURLOPT_HEADER, 0);
-//		curl_setopt( $ch, CURLOPT_RETURNTRANSFER, 1);
-//
-//		$response = curl_exec( $ch );
-//	}
 
 	function dump() {
 		return Mood::all();
