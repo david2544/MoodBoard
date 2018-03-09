@@ -15,15 +15,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/send_message', function () {
-    return view('phpMoodApp');
-})->middleware('auth');
-
 Route::post('/hook', 'BaseController@hook');
 
 Route::get('/outgoing', 'BaseController@outgoing');
 
-Route::get('/hook', 'BaseController@dump');
+Route::get('/dump', 'BaseController@dump');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
