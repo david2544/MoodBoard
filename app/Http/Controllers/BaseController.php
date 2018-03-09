@@ -17,6 +17,7 @@ class BaseController extends Controller
 		$mood->user_name = $user_name;
 		$mood->user_id = $user_id;
 		$mood->save();
+        return Mood::all();
 	}
 
 	function dump() {
