@@ -18,19 +18,6 @@ class BaseController extends Controller
 		$mood->user_id = $user_id;
 		$mood->save();
 	}
-	function outgoing(Request $request) {
-		$payload = json_decode($request->get('payload'));
-		$reply = "ok";
-		$url = 'https://hooks.slack.com/services/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';
-		$ch = curl_init( $url );
-		curl_setopt( $ch, CURLOPT_POST, 1);
-		curl_setopt( $ch, CURLOPT_POSTFIELDS, $reply);
-		curl_setopt( $ch, CURLOPT_FOLLOWLOCATION, 1);
-		curl_setopt( $ch, CURLOPT_HEADER, 0);
-		curl_setopt( $ch, CURLOPT_RETURNTRANSFER, 1);
-
-		$response = curl_exec( $ch );
-	}
 
 	function dump() {
 		return Mood::all();
