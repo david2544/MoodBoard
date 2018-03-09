@@ -23,7 +23,7 @@ class BaseController extends Controller
         else{
             $url = 'https://hooks.slack.com/services/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';
             $payload = '{
-                "text": "African or European?"
+                "text": '.json_encode($request).'
             }';
             $ch = curl_init( $url );
             curl_setopt( $ch, CURLOPT_POST, 1);
