@@ -24,11 +24,14 @@ class BaseController extends Controller
             $url = 'https://hooks.slack.com/services/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';
             $user_id = $_POST['user_id'];
             $trigger_word = $_POST['trigger_word'];
+
+            $payload = "";
+
             if ($trigger_word == "mood")
             {
-                $payload = '{
-                    "text": "Hello, Ive heard you mentioned something about mood"
-                }';
+                $payload = "{
+                    'text': 'Hello {$user_id}, Ive heard you mentioned something about mood'
+                }";
             }
             else{
                 $payload = '{
