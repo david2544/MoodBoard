@@ -18,7 +18,8 @@ Route::get('/', function () {
 Route::post('/hook', 'BaseController@hook');
 
 
-Route::get('/dump', 'BaseController@dump');
+Route::get('/hook', 'BaseController@dump');
+
 
 Auth::routes();
 

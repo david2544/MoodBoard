@@ -25,7 +25,7 @@ class BaseController extends Controller
             $user_name = $_POST['user_name'];
             $trigger_word = $_POST['trigger_word'];
 
-            $payload = "";
+            //$payload = "";
 
             if ($trigger_word == "mood") {
                 $payload = "{
