@@ -10,7 +10,9 @@ class BaseController extends Controller
     function hook(Request $request)
     {
         if ($request->has('payload')) {
+            //decoding the payload and savind it in the payload variable
             $payload = json_decode($request->get('payload'));
+
             $mood_value = $payload->actions[0]->value;
             $user_name = $payload->user->name;
             $user_id = $payload->user->id;
