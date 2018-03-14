@@ -6,7 +6,7 @@ use App\Mood;
 use Illuminate\Http\Request;
 
 class BaseController extends Controller
-{
+
     /* Receives a post request at /hook and the hook function identifies if its a POST request coming from the
         response of the user when tapping one of the mood buttons or if its an outgoing webhook triggered by
         one of the keywords typed by an user.
@@ -18,30 +18,33 @@ class BaseController extends Controller
         */
 
         if ($request->has('payload')) {
-            //  decoding the POST request and saving it into a variable
+            // Decoding the payload and saving it into payload variable
             $payload = json_decode($request->get('payload'));
-            // Extracting important values from the payload
+            // Extracting values from the payload and saving it into variables 
+            // (which have same names as database columns)
             $mood_value = $payload->actions[0]->value;
             $user_name = $payload->user->name;
             $user_id = $payload->user->id;
-            // Inserting the values into the database
+            // Inserting data into database
+
             $mood = new Mood;
             $mood->mood_value = $mood_value;
             $mood->user_name = $user_name;
             $mood->user_id = $user_id;
             // Saving
             $mood->save();
-            /*  If the POST request doesnt contain a payload parameter it means it is from an outgoing webhook triggered
-             *  by someone typing one of the keywords
-             */
-        } else {
-            //preparing the url to send an incomign webhook back to slack
-            $url = 'https://hooks.slack.com/services/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';
 
-            // extracting important information from the payload
+        // When outgoing webhooks (keyword within message are used, slack sends another payload to the 
+        // URL https://calm-temple-62799.herokuapp.com/hook) are used, the payload does not contain the key 
+        //'payload', so the else happens
+        } else {
+            // prepare URL to send message back to slack
+            $url = 'https://hooks.slack.com/services/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';
+            // extract values from message received by slack to be able to send personalized message to user
             $user_id = $_POST['user_id'];
-            $user_name = $_POST['user_name'];
+            //$user_name = $_POST['user_name'];
             $trigger_word = $_POST['trigger_word'];
+
 
             // preparing the payload to be sent back to slack based on the word that triggered the outgoing webhook
             if ($trigger_word == "mood") {
@@ -74,6 +77,7 @@ class BaseController extends Controller
                 }";
             }
             // sending the message back to slack via curl using the url provided above and the payload
+
             $ch = curl_init($url);
             curl_setopt($ch, CURLOPT_POST, 1);
             curl_setopt($ch, CURLOPT_POSTFIELDS, $payload);
@@ -84,6 +88,7 @@ class BaseController extends Controller
             $response = curl_exec($ch);
         }
     }
+
 
     // responsible for displaying the data from the database in the /hook view
     function dump()
