@@ -6,6 +6,7 @@ use App\Mood;
 use Illuminate\Http\Request;
 
 class BaseController extends Controller
+{
 
     /* Receives a post request at /hook and the hook function identifies if its a POST request coming from the
         response of the user when tapping one of the mood buttons or if its an outgoing webhook triggered by
