@@ -9,7 +9,7 @@ class BaseController extends Controller
 {   
     /* When user clicks a button, slack sends a payload to https://calm-temple-62799.herokuapp.com/hook
        This is configured within slack
-       The following function 
+       The following function
     */
     function hook(Request $request) 
     {
@@ -35,10 +35,8 @@ class BaseController extends Controller
             $url = 'https://hooks.slack.com/services/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';
             // extract values from message received by slack to be able to send personalized message to user
             $user_id = $_POST['user_id'];
-            $user_name = $_POST['user_name'];
+            //$user_name = $_POST['user_name'];
             $trigger_word = $_POST['trigger_word'];
-
-            //$payload = "";
 
             if ($trigger_word == "mood") {
                 $payload = "{
