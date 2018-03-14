@@ -6,6 +6,11 @@ use Carbon\Carbon;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Artisan;
 
+/* As filename states, this is a COMMAND! There is no view for this file!
+   The Command to be used to activate the function below is php artisan schedule:daemon
+   It is run by Heroku Scheduler https://scheduler.heroku.com/dashboard 
+*/
+
 class SendSlackMessage extends Command
 {
     /**
@@ -33,7 +38,11 @@ class SendSlackMessage extends Command
 
     public function handle()
     {
-        //saves the incoming webhook url here
+
+        /* Incoming webhook URL - Payload is sent to URL that is provided by Slack and then Slack API
+           transforms the payload to Slack message
+        */
+      
         $url = 'https://hooks.slack.com/services/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';
 
         //prepares the message to be sent to slack via incoming webhooks as JSON
@@ -94,7 +103,8 @@ class SendSlackMessage extends Command
             ]
         }';
 
-        //Using curl, the payload is sent and displayed in slack
+        // curl actually sends payload to URL (otherwise function wouln't know what and where to send it)
+
         $ch = curl_init( $url );
         curl_setopt( $ch, CURLOPT_POST, 1);
         curl_setopt( $ch, CURLOPT_POSTFIELDS, $payload);

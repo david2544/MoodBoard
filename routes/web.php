@@ -11,16 +11,16 @@
 |
 */
 
-//returns the welcome view at the root of the website
+// Retruns the welcoming page to the website root
 Route::get('/', function () {
     return view('welcome');
 });
 
-//Calls BaseController hook function when a post request is received
+// Receives the payload from slack and identifies if it comes from a click of a button or if its from an outgoing webhook
 Route::post('/hook', 'BaseController@hook');
 
-//Calls BaseController dump function which dumps the database
-Route::get('/dump', 'BaseController@dump');
+// Dumps the database data under the /hook view
+Route::get('/hook', 'BaseController@dump');
 
 Auth::routes();
 
