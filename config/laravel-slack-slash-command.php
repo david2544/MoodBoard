@@ -8,7 +8,9 @@ return [
      *
      * For `http://example.com/slack` you would put `slack` here.
      */
-    'url' => 'hook',
+    //'url' => 'hook',
+
+    'url' => 'https://calmtemple-staging-pr-6.herokuapp.com/hook',
 
 
     /*
