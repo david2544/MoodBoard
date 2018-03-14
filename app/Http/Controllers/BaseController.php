@@ -14,8 +14,6 @@ class BaseController extends Controller
     function hook(Request $request) 
     {
         if ($request->has('payload')) {
-            //decoding the payload and savind it in the payload variable
-            $payload = json_decode($request->get('payload'));
             // Decoding the payload and saving it into payload variable
             $payload = json_decode($request->get('payload'));
             // Extracting values from the payload and saving it into variables 
