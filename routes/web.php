@@ -11,13 +11,15 @@
 |
 */
 
+//returns the welcome view at the root of the website
 Route::get('/', function () {
     return view('welcome');
 });
 
+//Calls BaseController hook function when a post request is received
 Route::post('/hook', 'BaseController@hook');
 
-
+//Calls BaseController dump function which dumps the database
 Route::get('/dump', 'BaseController@dump');
 
 Auth::routes();
