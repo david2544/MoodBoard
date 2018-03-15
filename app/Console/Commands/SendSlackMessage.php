@@ -32,12 +32,20 @@ class SendSlackMessage extends Command
      *
      * @return mixed
      */
+    /*Takes the payload from the payload variable and sends it to slack via the url specified in the url variable
+    as an incoming webhook
+    */
+
     public function handle()
     {
+
         /* Incoming webhook URL - Payload is sent to URL that is provided by Slack and then Slack API
            transforms the payload to Slack message
         */
+      
         $url = 'https://hooks.slack.com/services/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';
+
+        //prepares the message to be sent to slack via incoming webhooks as JSON
         $payload = '{
             "text": "Hey! Would you like to introduce your input for today?",
             "attachments": [
@@ -96,7 +104,7 @@ class SendSlackMessage extends Command
         }';
 
         // curl actually sends payload to URL (otherwise function wouln't know what and where to send it)
-        
+
         $ch = curl_init( $url );
         curl_setopt( $ch, CURLOPT_POST, 1);
         curl_setopt( $ch, CURLOPT_POSTFIELDS, $payload);
