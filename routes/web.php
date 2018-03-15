@@ -22,6 +22,10 @@ Route::post('/hook', 'BaseController@hook');
 // Dumps the database data under the /hook view
 Route::get('/hook', 'BaseController@dump');
 
+Route::match(['get', 'post'], '/botman', 'BotManController@handle');
+Route::get('/botman/tinker', 'BotManController@tinker');
+
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
