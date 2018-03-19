@@ -35,4 +35,8 @@ return [
         'secret' => env('STRIPE_SECRET'),
     ],
 
+    'slack' => [
+        'token' => 'jiGT9rg5rBoX41zk01TwGvDj',
+    ],
+
 ];

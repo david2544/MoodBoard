@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "cce9f6a901b0dc51e942223ef0eabcc8",
+    "content-hash": "01758ffa92797ca9d5f6ed70715b2b58",
     "packages": [
         {
             "name": "botman/botman",
@@ -2904,6 +2904,53 @@
                 "environment"
             ],
             "time": "2016-09-01T10:05:43+00:00"
+        },
+        {
+            "name": "vluzrmos/slack-api",
+            "version": "v0.4.8",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/vluzrmos/laravel-slack-api.git",
+                "reference": "8213d8db19be6546fac0db5256aad1cfdfac7fae"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/vluzrmos/laravel-slack-api/zipball/8213d8db19be6546fac0db5256aad1cfdfac7fae",
+                "reference": "8213d8db19be6546fac0db5256aad1cfdfac7fae",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "~5.3|~6.0",
+                "illuminate/cache": "~5.0",
+                "illuminate/support": "~5.0",
+                "php": ">=5.5.9"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Vluzrmos\\": "src/Vluzrmos/"
+                },
+                "files": [
+                    "src/Vluzrmos/SlackApi/helpers.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "DBAD"
+            ],
+            "authors": [
+                {
+                    "name": "Vagner do Carmo",
+                    "email": "vluzrmos@gmail.com"
+                }
+            ],
+            "description": "Wrapper for Slack.com WEB API.",
+            "keywords": [
+                "laravel",
+                "lumen",
+                "slack"
+            ],
+            "time": "2016-10-22T16:34:17+00:00"
         }
     ],
     "packages-dev": [],
