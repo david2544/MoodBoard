@@ -67,11 +67,6 @@ class SendSlackMessage extends Command
                             "text": "Angry :angry:",
                             "type": "button",
                             "value": "1.5",
-                            "confirm": {
-                                "title": "Yo chill",
-                                "text": "ok? :grin:",
-                                "ok_text": "Ok"
-                            }
                         },
                         {
                             "name": "mood",
